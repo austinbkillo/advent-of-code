@@ -4,10 +4,11 @@ import * as readline from "readline";
 
 function getMeThatNumber() {
 
-const fileStream = fs.createReadStream("test.txt");
+const fileStream = fs.createReadStream("day-1-input.txt");
 
+let results = [];
 let counter = 0;
-let max = 0;
+let sum;
 const rl = readline.createInterface({
   input: fileStream,
   crlfDelay: Infinity,
@@ -15,20 +16,21 @@ const rl = readline.createInterface({
 
 rl.on("line", (line) => {
   if (line) {
-    console.log(`[${line}]`)
     counter += parseInt(line);
   } else {
-    console.log('counter', counter, 'max', max);
-     if (counter > max) {
-       max = counter;
-     }
-     counter = 0;
+    results.push(counter);
+    counter = 0;
   }
 });
 
 rl.on("close", () => {
-  console.log("max", max);
+  results.push(counter);
+  const last3 = results.sort((a, b) => a - b).slice(-3);
+  // add the elements in the array together
+  sum = last3.reduce((a, b) => a + b, 0);
+  console.log(sum);
 })
+
 
 }
 getMeThatNumber();
