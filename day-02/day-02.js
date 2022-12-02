@@ -7,38 +7,38 @@ function rockPaperScissors() {
 
   function handleRock(input) {
     if (input === 'Y') {
-      //2 for paper and 6 for win
-      return 8;
+      //draw
+      return 1 + 3;
     } else if (input === 'X') {
-      // 1 for rock and 3 for tie
-      return 4;
+      // lose
+      return 3 + 0
     }
-      // 3 for scissors and 0 for loss
-      return 3;
+      // win
+      return 2 + 6;
   }
 
 function handlePaper(input) {
-  if (input === 'Y') {
-    // 2 for paper and 3 for tie
-    return 5;
-  } else if (input === 'X') {
-    // 1 for rock and 0 for loss
-    return 1;
+  if (input === "Y") {
+    // draw
+    return 2 + 3;
+  } else if (input === "X") {
+    // lose
+    return 1 + 0;
   }
-    // 3 for scissors and 6 for win
-    return 9;
+  // win
+  return 3 + 6;
 }
 
 function handleScissors(input) {
   if (input === 'Y') {
-    // 2 for paper and 0 for loss
-    return 2;
+    // draw
+    return 3 + 3;
   } else if (input === 'X') {
-    // 1 for rock and 6 for win
-    return 7;
+    // lose
+    return 2 + 0;
   }
-    // 3 for scissors and 3 for tie
-    return 6;
+  // win
+    return 1 + 6;
 }
   let counter = 0;
   const rl = readline.createInterface({
