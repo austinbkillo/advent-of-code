@@ -17,9 +17,9 @@ function checkPairs(){
       let end1 = parseInt(p1[1]);
       let start2 = parseInt(p2[0]);
       let end2 = parseInt(p2[1]);
-      if (_.inRange(start1, start2, end2 + 1) && _.inRange(end1, start2, end2 + 1)) {
+      if (_.inRange(start1, start2, end2 + 1) || _.inRange(end1, start2, end2 + 1)) {
         total++;
-      } else if (_.inRange(start2, start1, end1 + 1) && _.inRange(end2, start1, end1 + 1)) {
+      } else if (_.inRange(start2, start1, end1 + 1) || _.inRange(end2, start1, end1 + 1)) {
         total++;
       }
     });
